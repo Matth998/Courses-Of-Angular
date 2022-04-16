@@ -1,51 +1,47 @@
-<div class="container-fluid">
+<section class="testimonial text-center">
 
-  <section class="pricing-section">
-    <div class="container mt-2">
-      <div class="row justify-content-md-center">
-        <div class="col-xl-5 col-lg-6 col-md-8">
-          <div class="section-title text-center title-ex1">
-            <h2>Courses</h2>
-            <p>See all our courses.</p>
-          </div>
-        </div>
-      </div>
-      <div class="form-group row">
+  <h2 class="heading white-heading mb-4"> Course Info</h2>
 
-        <label class="col-sm-2.col-form-label"> <i class="fa fa-search"></i> Filter By: </label>
+  <hr>
+  <div class="container">
 
-        <div class="col-sm-10">
+    <div class="heading white-heading">
+      {{course.name}}
+    </div>
+    <div id="testimonial4"
+      class="carousel slide testimonial4_indicators testimonial4_control_button thumb_scroll_x swipe_x"
+      data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2000">
 
-          <div class="mt-3 inputs"><input [(ngModel)]="filter" type="text" class="form-control "
-              placeholder="Search Course..."> </div>
-
-        </div>
-
-      </div>
-      <div class="row">
-        <div class="col-md-4 mt-2" *ngFor="let course of filteredCourses">
-          <div class="price-card">
-            <h2>{{course.name}}</h2>
-            <p>{{course.code}}</p>
-            <p class="price"><span>{{course.price}}</span></p>
-            <ul class="pricing-offers">
-              <li>{{course.releaseDate}}</li>
-              <li>
-                <app-star [rating]="course.rating"></app-star>
-              </li>
-              <div class="text-center">
-                <a class="animated-btn text-white" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="25"
-                    height="25" fill="currentColor" class="bi bi-cart-check" viewBox="0 0 16 16">
-                    <path
-                      d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
-                    <path
-                      d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-                  </svg></a>
-              </div>
-            </ul>
+      <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active">
+          <div class="testimonial4_slide">
+            <svg viewBox="0 0 128 128" width="80px" height="80px">
+              <path fill="#B3B3B3" d="M63.81 1.026L4.553 21.88l9.363 77.637 49.957 27.457 50.214-27.828 9.36-77.635z">
+              </path>
+              <path fill="#A6120D" d="M117.536 25.998L63.672 7.629v112.785l45.141-24.983z"></path>
+              <path fill="#DD1B16" d="M11.201 26.329l8.026 69.434 44.444 24.651V7.627z"></path>
+              <path fill="#F2F2F2"
+                d="M78.499 67.67l-14.827 6.934H48.044l-7.347 18.374-13.663.254 36.638-81.508L78.499 67.67zm-1.434-3.491L63.77 37.858 52.864 63.726h10.807l13.394.453z">
+              </path>
+              <path fill="#B3B3B3"
+                d="M63.671 11.724l.098 26.134 12.375 25.888H63.698l-.027 10.841 17.209.017 8.042 18.63 13.074.242z">
+              </path>
+            </svg>
+            <p>{{course.description}} </p>
+            <h4>{{course.price}}</h4>
+            <div class="text-center mt-3">
+              <a class="animated-btn text-white" (click)="buy()"><svg
+                  xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart-check"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
+                  <path
+                    d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                </svg></a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-</div>
+  </div>
+</section>

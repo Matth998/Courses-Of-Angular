@@ -1,50 +1,44 @@
+import { AlertsService } from './../alerts/alert.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Course } from './course';
 import { CourseService } from './course.service';
-import { Component, OnInit } from "@angular/core";
-import { Course } from "./course";
 
 @Component({
-
-    selector: 'app-course-list',
     templateUrl: './course-info.component.html',
     styleUrls: ['./course-info.component.css']
-
 })
+export class CourseInfoComponent implements OnInit {
 
-export class CourseListComponent implements OnInit {
-
-    filteredCourses: Course[] = [];
-
-    _courses: Course[] = [];
-
-    _filterBy: string;
-
+    course: Course;
 
     constructor(
-
-        private courseService: CourseService
-
-    ) { }
+        private activatedRoute: ActivatedRoute, 
+        private courseService: CourseService,
+        public alertsService: AlertsService
+        ) { }
 
     ngOnInit(): void {
+        this.courseService.retrieveById(+this.activatedRoute.snapshot.params['id']).subscribe({
+            next: course => this.course = course,
+            error: err => console.log('Error', err)
+        });
+    }
 
-        this._courses = this.courseService.retrieveAll();
-        this.filteredCourses = this._courses;
+    save():void{
+
+        this.courseService.save(this.course).subscribe({
+
+            next: course => console.log('Saved with Sucess', course),
+            error: err => console.log('Error', err)
+
+        });
 
     }
 
-    set filter(value: string){
+    buy(){
 
-        this._filterBy = value;
-
-        this.filteredCourses = this._courses.filter((course: Course) =>
-
-                course.name.toLocaleLowerCase().indexOf(this._filterBy.toLocaleLowerCase()) > -1);
-
-    }
-
-    get filter(){
-
-        return this._filterBy
+        this.alertsService.showAlertSuccess("Compra realizada com sucesso!")
 
     }
 

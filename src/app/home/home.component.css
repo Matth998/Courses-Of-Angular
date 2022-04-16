@@ -1,0 +1,74 @@
+@keyframes changeBackgroundColor {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100%;
+  }
+
+  100% {
+    background-position: 50% 0%;
+  }
+}
+
+.bg-home {
+
+  background: linear-gradient(135deg, #66000a 0%, #f02846 100%);
+  background-size: 300% 300%;
+  animation: changeBackgroundColor 15s ease infinite;
+
+}
+
+
+h1 {
+
+  color: #fff;
+
+}
+
+p {
+
+  color: #fff;
+
+}
+
+.header-blue .hero {
+  margin-top: 20px;
+  text-align: center
+}
+
+@media (min-width:768px) {
+  .header-blue .hero {
+    margin-top: 60px;
+    text-align: left
+  }
+}
+
+.header-blue .hero h1 {
+  color: #fff;
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: 300;
+  line-height: 1.4
+}
+
+@media (min-width:992px) {
+  .header-blue .hero h1 {
+    margin-top: 190px;
+    margin-bottom: 24px;
+    line-height: 1.2
+  }
+}
+
+.header-blue .hero p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 20px;
+  margin-bottom: 30px;
+  font-weight: 300
+}
+
+.header-blue .phone-holder {
+  text-align: right
+}
